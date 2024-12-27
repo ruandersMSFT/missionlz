@@ -54,6 +54,8 @@ module hubNetwork 'hub-network.bicep' = {
     firewallThreatIntelMode: firewallSettings.threatIntelMode
     location: location
     mlzTags: mlzTags
+    natGatewayName: hub.namingConvention.natGateway
+    natGatewayPublicIpPrefixName: hub.namingConvention.natGatewayPublicIpPrefix
     networkSecurityGroupName: hub.namingConvention.networkSecurityGroup
     networkSecurityGroupRules: hub.nsgRules
     networkWatcherName: hub.namingConvention.networkWatcher
