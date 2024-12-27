@@ -93,7 +93,7 @@ var names = {
   logAnalyticsWorkspace: replace(namingConvention, tokens.resource, resourceAbbreviations.logAnalyticsWorkspaces)
   logAnalyticsWorkspaceDiagnosticSetting: replace(replace(namingConvention_Service, tokens.resource, resourceAbbreviations.diagnosticSettings), tokens.service, resourceAbbreviations.logAnalyticsWorkspaces)
   natGateway: replace(namingConvention, tokens.resource, resourceAbbreviations.natGateway)
-  natGatewayPublicIpPrefix: replace(namingConvention, tokens.resource, resourceAbbreviations.natGatewayPublicIpPrefixes)
+  natGatewayPublicIpPrefix: replace(namingConvention, tokens.resource, resourceAbbreviations.publicIpPrefixes)
   netAppAccountCapacityPool: replace(namingConvention, tokens.resource, resourceAbbreviations.netAppCapacityPools)
   netAppAccount: replace(namingConvention, tokens.resource, resourceAbbreviations.netAppAccounts)
   networkSecurityGroup: replace(namingConvention, tokens.resource, resourceAbbreviations.networkSecurityGroups)
