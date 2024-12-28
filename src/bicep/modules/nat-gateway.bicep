@@ -44,7 +44,7 @@ resource natGateway 'Microsoft.Network/natGateways@2024-05-01' = {
     publicIpAddresses: publicIpResourceIds
     publicIpPrefixes: publicIPPrefixResourceIds
   }
-  zones: zone != 0 ? [string(zone)] : null
+  zones: zone != 0 ? [string(zone)] : []
 }
 
 output name string = natGateway.name

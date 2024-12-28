@@ -331,7 +331,7 @@ module natGatewayPublicIpPrefix '../modules/public-ip-prefix.bicep' = if (deploy
     location: location
     mlzTags: mlzTags
     name: natGatewayPublicIpPrefixName
-    prefixLength: 28
+    prefixLength: 30
     tags: tags
   }
 }
@@ -342,7 +342,11 @@ module natGateway '../modules/nat-gateway.bicep' = if (deployAzureNATGateway) {
     location: location
     mlzTags: mlzTags
     name: natGatewayName
-    publicIPPrefixResourceIds: [natGatewayPublicIpPrefix.outputs.id]
+    publicIPPrefixResourceIds: [
+      {
+        id: natGatewayPublicIpPrefix.outputs.id
+      }
+    ]
     tags: tags
   }
 }

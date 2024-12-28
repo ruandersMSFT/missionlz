@@ -20,5 +20,6 @@ module defenderForCloud 'defender-for-cloud.bicep' = [for tier in tiers: if (tie
     emailSecurityContact: emailSecurityContact
     defenderSkuTier: defenderSkuTier
     defenderPlans: defenderPlans
+    enableAutoProvisioning: false
   }
 }]
