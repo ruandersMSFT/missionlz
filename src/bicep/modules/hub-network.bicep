@@ -9,7 +9,7 @@ param azureGatewaySubnetAddressPrefix string
 param deployNetworkWatcher bool
 param deployBastion bool
 param deployAzureGatewaySubnet bool
-param deployAzureNATGateway bool = true
+param deployAzureNATGateway bool
 param dnsServers array
 param enableProxy bool
 param firewallClientPrivateIpAddress string
@@ -39,6 +39,7 @@ param location string
 param mlzTags object
 param natGatewayName string
 param natGatewayPublicIpPrefixName string
+param natGatewayPublicIpPrefixLength int
 param networkSecurityGroupName string
 param networkSecurityGroupRules array
 param networkWatcherName string
@@ -55,6 +56,7 @@ var subnets = union([
     name: 'AzureFirewallSubnet'
     properties: {
       addressPrefix: firewallClientSubnetAddressPrefix
+      natGateway: deployAzureNATGateway ? { id: natGateway.outputs.id } : null
     }
   }
   {
@@ -67,6 +69,7 @@ var subnets = union([
     name: subnetName
     properties: {
       addressPrefix: subnetAddressPrefix
+      natGateway: deployAzureNATGateway ? { id: natGateway.outputs.id } : null
       networkSecurityGroup: {
         id: networkSecurityGroup.outputs.id
       }
@@ -331,7 +334,7 @@ module natGatewayPublicIpPrefix '../modules/public-ip-prefix.bicep' = if (deploy
     location: location
     mlzTags: mlzTags
     name: natGatewayPublicIpPrefixName
-    prefixLength: 30
+    prefixLength: natGatewayPublicIpPrefixLength
     tags: tags
   }
 }
